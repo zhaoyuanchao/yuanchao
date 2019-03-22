@@ -17,7 +17,8 @@ pipeline {
         CI = 'true'
       }
       steps {
-        sh './jenkins/scripts/test.sh'
+        sh '''git pull
+./jenkins/scripts/test.sh'''
       }
     }
   }
