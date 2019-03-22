@@ -19,7 +19,7 @@ pipeline {
       steps {
         sh '''git pull
 chmod 766 ./jenkins/scripts/test.sh
-bash ./jenkins/scripts/test.sh'''
+./jenkins/scripts/test.sh'''
       }
     }
   }
