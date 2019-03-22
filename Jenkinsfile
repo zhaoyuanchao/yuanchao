@@ -18,7 +18,8 @@ pipeline {
       }
       steps {
         sh '''git pull
-./jenkins/scripts/test.sh'''
+chmod 766 ./jenkins/scripts/test.sh
+bash ./jenkins/scripts/test.sh'''
       }
     }
   }
