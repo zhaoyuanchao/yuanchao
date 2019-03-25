@@ -13,13 +13,22 @@ pipeline {
       }
     }
     stage('Test') {
-      environment {
-        CI = 'true'
-      }
-      steps {
-        sh '''git pull
+      parallel {
+        stage('Test') {
+          environment {
+            CI = 'true'
+          }
+          steps {
+            sh '''git pull
 chmod 766 ./jenkins/scripts/test.sh
 ./jenkins/scripts/test.sh'''
+          }
+        }
+        stage('Before Test') {
+          steps {
+            echo 'Before Test'
+          }
+        }
       }
     }
     stage('Deliver') {
